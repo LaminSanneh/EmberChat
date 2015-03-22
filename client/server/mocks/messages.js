@@ -1,6 +1,11 @@
 module.exports = function(app) {
   var express = require('express');
   var messagesRouter = express.Router();
+  var bodyParser = require('body-parser');
+  var multer = require('multer');
+  app.use(bodyParser.json()); // for parsing application/json
+  app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+  app.use(multer()); // for parsing multipart/form-data
   var messages = [
     {
       id: 1,
@@ -16,7 +21,11 @@ module.exports = function(app) {
   });
 
   messagesRouter.post('/', function(req, res) {
-    res.status(201).end();
+    //console.log(req);
+    var body = req.body;
+    body.message.sentDate = new Date();
+    messages.push(body);
+    res.status(201).send(body);
   });
 
   messagesRouter.get('/:id', function(req, res) {
