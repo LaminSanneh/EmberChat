@@ -12,6 +12,12 @@ module.exports = {
     body : { type: 'text' },
 
     dateSent : { type: 'datetime' }
+  },
+
+  beforeCreate: function(values, cb) {
+
+    values.dateSent = new Date();
+    cb();
   }
 };
 
