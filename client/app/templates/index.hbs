@@ -1,7 +1,7 @@
 <h2>Messages</h2>
-<ul>
+<ul class="list-group">
 {{#each message in model}}
-  <li>{{ message.body }}</li>
+  <li class="list-group-item" >{{ message.body }} <a href="" class="glyphicon glyphicon-remove" {{ action 'deleteMessage' message }} ></a><span class="pull-right" >Edit</span></li>
 {{/each}}
 </ul>
 <form {{action 'messageSubmitted' messageBody on='submit' }} >
