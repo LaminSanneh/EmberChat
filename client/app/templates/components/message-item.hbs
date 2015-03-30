@@ -1,0 +1,13 @@
+<li class="list-group-item row" >
+  {{#if inEditMode }}
+      <div class="form-group">
+        {{input value=message.body class="form-control" action="disableEditMode" on="enter" }}
+      </div>
+  {{else}}
+    <div class="pull-left" >
+      {{ message.body }}
+      <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
+    </div>
+    <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
+  {{/if}}
+</li>
