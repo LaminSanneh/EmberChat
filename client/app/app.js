@@ -11,6 +11,9 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
+io.sails.autoConnect = false;
+io.sails.url = config.APP.websocketBaseUrl;
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;

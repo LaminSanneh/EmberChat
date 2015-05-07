@@ -8,20 +8,34 @@ export default Ember.Controller.extend({
 
     modelNames.forEach(function(name){
       socket.on(name, function(event){
+
+        function getModel(type, id){
+          return controller.store.find(name, id);
+        }
+
         console.log(event);
         switch(event.verb){
           case "created":
-            var model = event.data;
-            model.id = event.id;
-            controller.store.push(name, model);
+            getModel(name, event.id).then(function(model) {
+              console.log(model);
+              if(model){
+                model.setProperties(event.data);
+              }
+              else{
+                controller.store.push(name, event.data);
+              }
+            });
+            break;
           case "updated":
-            var model = event.data;
-            model.id = event.id;
-            controller.store.push(name, model);
+            getModel(name, event.previous.id).then(function(model) {
+              model.setProperties(event.data);
+            });
+            break;
           case "destroyed":
-            controller.store.find(name, event.previous.id).then(function(model){
+            getModel(name, event.previous.id).then(function(model){
               controller.store.deleteRecord(model);
             });
+            break;
         }
       });
     });

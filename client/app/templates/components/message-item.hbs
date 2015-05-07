@@ -9,5 +9,8 @@
       <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
     </div>
     <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
+    <div class="row">
+        <span class="pull-right">{{message.dateSent}}</span>
+    </div>
   {{/if}}
 </li>

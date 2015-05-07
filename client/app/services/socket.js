@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../config/environment';
 
-io.sails.autoConnect = false;
+io.sails.autoConnect = true;
 io.sails.url = config.APP.websocketBaseUrl;
 
 var socket = io.sails.connect();
