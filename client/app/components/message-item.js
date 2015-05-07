@@ -12,8 +12,9 @@ export default Ember.Component.extend({
       this.set('inEditMode', true);
     },
 
-    disableEditMode: function(){
+    finishedEditing: function(){
       this.set('inEditMode', false);
+      this.sendAction('updateMessageAction', this.get('message'));
     }
   }
 });

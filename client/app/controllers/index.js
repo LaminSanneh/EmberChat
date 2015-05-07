@@ -6,12 +6,20 @@ export default Ember.ArrayController.extend({
 
       this.store.createRecord('message', {
         body: messageBody
-      }).save();
+      }).save().then(function(){
+        this.set('messageBody', '');
+      }.bind(this));
     },
 
     deleteMessage: function(message) {
 
       message.destroyRecord();
+    },
+
+    updateMessage: function(message){
+      if(message.get('isDirty')){
+        message.save();
+      }
     }
   }
 });

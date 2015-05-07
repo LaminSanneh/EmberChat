@@ -13,9 +13,20 @@ module.exports = function(environment) {
       }
     },
 
+    contentSecurityPolicy : {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' localhost:35729",
+      'font-src': "'self' data: http://fonts.gstatic.com",
+      'connect-src': "'self' ws://localhost:35729",
+      'img-src': "'self'",
+      'style-src': "'self' fonts.googleapis.com",
+      'media-src': "'self'"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      websocketBaseUrl: 'http://localhost:1337'
     }
   };
 
@@ -42,6 +53,10 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV.contentSecurityPolicy['script-src'] += ' http://localhost:1337';
+// allow the websocket to connect
+  ENV.contentSecurityPolicy['connect-src'] += ' http://localhost:1337 ws://localhost:1337';
 
   return ENV;
 };
