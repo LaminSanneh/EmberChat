@@ -1,4 +1,13 @@
 <div class="container">
   <h2 id="title">Welcome to Ember.js</h2>
+  <div class="row">
+      {{#link-to 'index' class='pull-left' }}
+          Home
+      {{/link-to}}
+
+      {{#link-to 'login' class='pull-right' }}
+          Login
+      {{/link-to}}
+  </div>
   {{outlet}}
 </div>

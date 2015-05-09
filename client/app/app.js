@@ -14,6 +14,8 @@ var App = Ember.Application.extend({
 io.sails.autoConnect = false;
 io.sails.url = config.APP.websocketBaseUrl;
 
+//require('torii/load-initializers')['default']();
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;

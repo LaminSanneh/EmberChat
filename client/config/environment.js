@@ -27,7 +27,21 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       websocketBaseUrl: 'http://localhost:1337'
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        local: {
+
+        },
+        'facebook-connect': {
+            appId: 'xxxxx-some-app-id',
+            scope: 'email,user_birthday'
+        }
+      }
     }
+
   };
 
   if (environment === 'development') {
