@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   open: function(authorization){
     return new Ember.RSVP.Promise(function(resolve, reject){
-      resolve({sessionToken: 'Some Temp Token2'});
+      resolve(authorization);
     });
     //var userId = authorization.user,
     //    store  = this.get('store');

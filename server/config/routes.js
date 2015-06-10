@@ -34,8 +34,8 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
-
+  },
+  
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -45,5 +45,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  // Endpoints
+  'post /api/login': 'UserController.login',
+//  'post /api/signup': 'UserController.signup',
+  'post /api/logout': 'UserController.logout'
 };

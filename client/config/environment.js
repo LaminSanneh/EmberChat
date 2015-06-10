@@ -26,7 +26,8 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      websocketBaseUrl: 'http://localhost:1337'
+      websocketBaseUrl: 'http://localhost:1337',
+      websocketNamespace: 'api'
     },
 
     torii: {

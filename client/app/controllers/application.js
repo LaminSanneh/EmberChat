@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   init: function(){
-    var modelNames = ["message"],
+    var modelNames = ["message", "user"],
         socket = this.socketService.socket,
         controller = this;
 

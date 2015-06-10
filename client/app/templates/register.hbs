@@ -1,5 +1,5 @@
 {{outlet}}
-<form {{action 'loginSubmitted' username password anonymous on='submit' }} >
+<form {{action 'registerSubmitted' username password on='submit' }} >
     <div class="form-group">
         <label for="username">Username</label>
       {{ input value=username class="form-control" }}
@@ -8,9 +8,5 @@
         <label for="password">Password</label>
       {{ input type='password' value=password class="form-control" }}
     </div>
-    <div class="form-group">
-        <label for="anonymous">Anonymous</label>
-      {{ input type='checkbox' checked=anonymous class="form-control" }}
-    </div>
-    <button type="submit" class="btn btn-default pull-right">Login</button>
+    <button type="submit" class="btn btn-default pull-right">Register</button>
 </form>

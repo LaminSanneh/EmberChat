@@ -10,6 +10,10 @@ socket.get("/api/messages", function(messages){
   console.log(messages);
 });
 
+socket.get("/api/users", function(users){
+  console.log(users);
+});
+
 export default Ember.Object.extend({
   socket: socket
 });
