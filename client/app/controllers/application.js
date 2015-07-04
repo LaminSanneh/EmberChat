@@ -3,8 +3,16 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   init: function(){
     var modelNames = ["message", "user"],
-        socket = this.socketService.socket,
+        socket = this.sailsSocket,
         controller = this;
+
+    socket.on('didConnect', function(){
+      console.log('Socket Connected');
+    });
+
+    socket.on('didDisconnect', function(){
+      console.log('Socket Disconnected');
+    });
 
     modelNames.forEach(function(name){
       socket.on(name, function(event){

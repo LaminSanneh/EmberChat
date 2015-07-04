@@ -11,10 +11,11 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
-io.sails.autoConnect = false;
-io.sails.url = config.APP.websocketBaseUrl;
+// io.sails.autoConnect = true;
+// io.sails.url = config.APP.websocketBaseUrl;
 
 //require('torii/load-initializers')['default']();
+
 
 loadInitializers(App, config.modulePrefix);
 

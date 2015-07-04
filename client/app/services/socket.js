@@ -4,16 +4,16 @@ import config from '../config/environment';
 io.sails.autoConnect = true;
 io.sails.url = config.APP.websocketBaseUrl;
 
-var socket = io.sails.connect();
+// var socket = io.sails.connect();
 
-socket.get("/api/messages", function(messages){
-  console.log(messages);
-});
+// socket.get("/api/messages", function(messages){
+//   console.log(messages);
+// });
 
-socket.get("/api/users", function(users){
-  console.log(users);
-});
+// socket.get("/api/users", function(users){
+//   console.log(users);
+// });
 
 export default Ember.Object.extend({
-  socket: socket
+  // socket: socket
 });

@@ -14,20 +14,28 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy : {
-      'default-src': "'none'",
-      'script-src': "'self' 'unsafe-eval' 'unsafe-inline' localhost:35729",
-      'font-src': "'self' data: http://fonts.gstatic.com",
-      'connect-src': "'self' ws://localhost:35729",
-      'img-src': "'self'",
-      'style-src': "'self' fonts.googleapis.com",
-      'media-src': "'self'"
+      // 'default-src': "'none'",
+      // 'script-src': "'self' 'unsafe-eval' 'unsafe-inline' localhost:35729",
+      // 'font-src': "'self' data: http://fonts.gstatic.com",
+      // 'connect-src': "'self' ws://localhost:35729",
+      // 'img-src': "'self'",
+      // 'style-src': "'self' fonts.googleapis.com",
+      // 'media-src': "'self'"
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
       websocketBaseUrl: 'http://localhost:1337',
-      websocketNamespace: 'api'
+      websocketNamespace: 'api',
+      // if you want some useful debug information related to sails 
+      SAILS_LOG_LEVEL: 'debug',
+      emberDataSails:  {
+        // default is to use same host and port as the ember app: 
+        host: '//localhost:1337',
+        // this is the default and is the path to the sails io script: 
+        //scriptPath: '/js/dependencies/sails.io.js' 
+      }
     },
 
     torii: {

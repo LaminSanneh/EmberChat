@@ -11,27 +11,15 @@ module.exports = {
   attributes: {
   	username: { type: 'text', required: true, unique: true },
     password: { type: 'text' },
-    anonymous: { type: 'boolean', defaultsTo: false },
-	isConnected: { type: 'boolean', defaultsTo: true }
+	 isConnected: { type: 'boolean', defaultsTo: false }
   },
   signup: function (inputs, cb) {
     
-    if(inputs.anonymous){
-      User.create({
-        username: inputs.username,
-        password: '',
-        anonymous: true
-      })
-      .exec(cb);
-    }
-    else{
-      User.create({
-        username: inputs.username,
-        password: inputs.password,
-        anonymous: false
-      })
-      .exec(cb);
-    }
+    User.create({
+      username: inputs.username,
+      password: inputs.password,
+    })
+    .exec(cb);
   },
   
   attemptLogin: function (inputs, cb) {

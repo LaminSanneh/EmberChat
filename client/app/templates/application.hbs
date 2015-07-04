@@ -6,12 +6,15 @@
       {{/link-to}}
 
       {{#link-to 'register' class='pull-right' }}
-          Register
+          <span>&nbsp;</span>Register
       {{/link-to}}
-      
-      {{#link-to 'login' class='pull-right' }}
-          Login
-      {{/link-to}}
+      {{#if session.isAuthenticated}}
+        <a class='pull-right' {{ action 'invalidateSession' }}>Logout</a>
+      {{else}}
+        {{#link-to 'login' class='pull-right' }}
+            Login
+        {{/link-to}}
+      {{/if}}
   </div>
   {{outlet}}
 </div>
