@@ -5,12 +5,14 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function(params){
     return Ember.RSVP.hash({
-      messages: this.store.find('message')
+      messages: this.store.find('message'),
+      users: this.store.find('user')
     });
   },
   setupController: function(controller, model){
     this._super(controller, model);
     controller.set('messages', model.messages);
+    controller.set('users', model.users);
   },
   actions: {
     invalidateSession: function() {

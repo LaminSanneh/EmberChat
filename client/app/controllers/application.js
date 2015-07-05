@@ -14,12 +14,12 @@ export default Ember.Controller.extend({
       console.log('Socket Disconnected');
     });
 
+    function getModel(type, id){
+      return controller.store.getById(name, id);
+    }
+
     modelNames.forEach(function(name){
       socket.on(name, function(event){
-
-        function getModel(type, id){
-          return controller.store.find(name, id);
-        }
 
         console.log(event);
         switch(event.verb){

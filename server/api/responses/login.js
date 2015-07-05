@@ -47,6 +47,8 @@ module.exports = function login(inputs) {
       return res.ok(userObject);
     }
 
+    // sails.sockets.blast('userLoggedIn', {userId: user.id});
+
     // Otherwise if this is an HTML-wanting browser, redirect to /.
     return res.redirect(inputs.successRedirect);
   });

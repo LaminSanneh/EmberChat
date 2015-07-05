@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   actions: {
     loginSubmitted: function(username, password){
-      console.log(arguments);
       var route = this;
       
       var providerName = 'local',
@@ -12,9 +11,13 @@ export default Ember.Route.extend({
         password: password
       };
 
-      this.get('session').authenticate('simple-auth-authenticator:torii', providerName, options).then(function(user){
+      this.get('session').authenticate('simple-auth-authenticator:torii', providerName, options).then(function(user, user2){
+        var users = route.get('currentModel.users'),
+        currentUser = users.findBy('username', username);
         console.log('Logged in with simple auth');
-        route.transitionTo('index');
+        currentUser.set('isConnected', true).save().then(function(){
+          route.transitionTo('index');
+        });
       });
     }
   },
