@@ -4,13 +4,23 @@
         {{input value=message.body class="form-control" action="finishedEditing" on="enter" }}
       </div>
   {{else}}
-    <div class="pull-left" >
-      {{ message.body }}
-      <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
-    </div>
-    <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
     <div class="row">
-        <span class="pull-right">{{message.dateSent}}</span>
+      <div class="pull-left" >
+        {{ message.body }}
+        <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
+      </div>  
     </div>
+    <div class="row">
+      <div class="row">
+        <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
+      </div>
+      <div class="row">
+          <span class="pull-right">by {{message.sender.username}}</span>
+      </div>
+      <div class="row">
+        <span class="pull-right">{{message.dateSent}}</span>
+      </div>  
+    </div>
+    
   {{/if}}
 </li>

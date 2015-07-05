@@ -15,6 +15,10 @@ module.exports = {
 
     chatSession: {
       model: 'chatSession'
+    },
+
+    sender: {
+      model: 'user'
     }
   },
 

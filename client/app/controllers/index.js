@@ -3,11 +3,14 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
+  activeSession: null,
   actions: {
-    messageSubmitted: function(messageBody){
+    messageSubmitted: function(messageBody, session, sender){
 
       this.store.createRecord('message', {
-        body: messageBody
+        body: messageBody,
+        chatSession: session,
+        sender: sender
       }).save().then(function(){
         this.set('messageBody', '');
       }.bind(this));
@@ -43,6 +46,9 @@ export default Ember.ArrayController.extend({
     },
     deleteChatSession: function(session){
       session.destroyRecord();
+    },
+    setActiveChatSession: function(session){
+      this.set('activeSession', session);
     }
   },
   targetUserIsCurrentUser: function(targetUser, currentUser){
