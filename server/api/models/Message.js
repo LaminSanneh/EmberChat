@@ -11,7 +11,11 @@ module.exports = {
 
     body : { type: 'text' },
 
-    dateSent : { type: 'datetime' }
+    dateSent : { type: 'datetime' },
+
+    chatSession: {
+      model: 'chatSession'
+    }
   },
 
   beforeCreate: function(values, cb) {

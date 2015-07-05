@@ -11,7 +11,11 @@ module.exports = {
   attributes: {
   	username: { type: 'text', required: true, unique: true },
     password: { type: 'text' },
-	 isConnected: { type: 'boolean', defaultsTo: false }
+	 isConnected: { type: 'boolean', defaultsTo: false },
+   chatSessions: {
+    collection: 'chatSession',
+    via: 'users'
+   }
   },
   signup: function (inputs, cb) {
     
