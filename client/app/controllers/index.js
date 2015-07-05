@@ -25,13 +25,14 @@ export default Ember.ArrayController.extend({
     },
     startNewOrExistingSession: function(targetUser){
 
-      if(targetUser.get('id') === this.get('currentUser.id')){
+      if(this.targetUserIsCurrentUser(targetUser, this.get('currentUser')) || this.sessionAlreadyExistsWithTargetUser(targetUser)){
         return;
       }
 
       var chatSession = {
         users: [],
         messages: [],
+        startedBy: this.get('currentUser'),
         type: 'private'
       },
       controller = this;
@@ -43,5 +44,20 @@ export default Ember.ArrayController.extend({
     deleteChatSession: function(session){
       session.destroyRecord();
     }
+  },
+  targetUserIsCurrentUser: function(targetUser, currentUser){
+    return targetUser.get('id') === currentUser.get('id');
+  },
+  sessionAlreadyExistsWithTargetUser: function(targetUser){
+    var sessionExists = false;
+    targetUser.get('chatSessions').forEach(function(session){
+      session.get('users').forEach(function(user){
+        if(user.get('id') === targetUser.get('id')){
+          sessionExists = true;
+        }
+      });
+    });
+
+    return sessionExists;
   }
 });
