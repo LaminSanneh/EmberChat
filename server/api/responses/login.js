@@ -41,7 +41,10 @@ module.exports = function login(inputs) {
     // send a 200 response letting the user agent know the login was successful.
     // (also do this if no `successRedirect` was provided)
     if (req.wantsJSON || !inputs.successRedirect) {
-      return res.ok();
+      userObject = {
+        id: user.id
+      }
+      return res.ok(userObject);
     }
 
     // Otherwise if this is an HTML-wanting browser, redirect to /.

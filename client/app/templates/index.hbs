@@ -1,7 +1,7 @@
 <h2>Users</h2>
 <ul class="list-group">
 {{#each user in loggedInUsers}}
-  <li class="list-group-item row" >{{ user.username }}</li>
+  <li class="list-group-item row" >{{ user.username }} &nbsp;<span class="label {{if user.isConnected 'label-success' 'label-default'}}">&nbsp;</span></li>
 {{/each}}
 </ul>
 

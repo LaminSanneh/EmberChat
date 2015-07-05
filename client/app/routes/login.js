@@ -12,19 +12,10 @@ export default Ember.Route.extend({
         password: password
       };
 
-      this.get('session').authenticate('simple-auth-authenticator:torii', providerName, options).then(function(){
+      this.get('session').authenticate('simple-auth-authenticator:torii', providerName, options).then(function(user){
         console.log('Logged in with simple auth');
-        this.redirectToRoute('index');
+        route.transitionTo('index');
       });
-      // argument to open is passed into the provider
-      // this.get('session').open(providerName, {
-      //   username: username,
-      //   password: password
-      // }).then(function(authorization){
-      //   console.log(authorization);
-      //   // authorization as returned by the provider
-      //   route.dealWithLoginToken(authorization.sessionToken);
-      // });
     }
   },
   dealWithLoginToken: function(sessionToken){

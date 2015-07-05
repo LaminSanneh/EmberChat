@@ -47,5 +47,14 @@ export default Ember.Controller.extend({
         }
       });
     });
-  }
+  },
+  currentUser: function(){
+    // User as stored in the session cookie
+    var currentSessionUser = this.get('session.secure.currentUser'); 
+    if(Ember.isEmpty(currentSessionUser)){
+      return {};
+    }
+
+    return this.store.getById('user',currentSessionUser.id);
+  }.property('session.secure.currentUser.id')
 });

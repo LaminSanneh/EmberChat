@@ -12,5 +12,12 @@ export default Ember.Object.extend({
     //    currentUser: user
     //  };
     //});
+  },
+  fetch: function(data){
+    console.log('Hello 2'); 
+    console.log(data); 
+    return new Ember.RSVP.Promise(function(resolve, reject){
+      resolve(data);
+    });
   }
 });
