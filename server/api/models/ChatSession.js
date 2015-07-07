@@ -13,6 +13,7 @@ module.exports = {
       collection: 'user',
       via: 'chatSessions'
     },
+    startedBy: { model: 'user' },
     messages: {
       collecton: 'message',
       via: 'chatSession'
