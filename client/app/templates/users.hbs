@@ -1,0 +1,7 @@
+<ul class="list-group">
+{{#each user in existingUsers}}
+  {{existing-user startingUser=currentUser user=user
+    startNewOrExistingSessionAction='startNewOrExistingSession' }}
+{{/each}}
+</ul>
+{{outlet}}

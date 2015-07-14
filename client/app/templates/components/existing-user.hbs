@@ -1,0 +1,5 @@
+<li class="list-group-item row"
+  {{action 'startNewOrExistingSession' startingUser user}} >
+  {{ user.username }} &nbsp;<span class="label {{if user.isConnected 'label-success' 'label-default'}}">&nbsp;</span>
+</li>
+{{yield}}

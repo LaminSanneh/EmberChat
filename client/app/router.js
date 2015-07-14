@@ -9,6 +9,9 @@ Router.map(function() {
   this.resource('login', function() {});
   this.resource('user', function() {});
   this.route('register');
+  this.route('chatSessions');
+  this.route('chatSession', {path: '/chatSessions/:id'});
+  this.route('users');
 });
 
 export default Router;

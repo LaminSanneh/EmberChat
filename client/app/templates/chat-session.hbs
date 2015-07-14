@@ -1,0 +1,14 @@
+<div class="chat-session-messages">
+{{#each message in model.messages}}
+  {{message-item message=message deleteMessageAction="deleteMessage" updateMessageAction="updateMessage" }}
+{{/each}}
+</div>
+
+
+<form {{action 'messageSubmitted' messageBody model currentUser on='submit' }} >
+    <div class="form-group">
+      <label for="exampleInputEmail1">Message</label>
+      {{ input value=messageBody class="form-control" }}
+    </div>
+</form>
+{{outlet}}

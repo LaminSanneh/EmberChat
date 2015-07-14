@@ -1,26 +1,15 @@
-<li class="list-group-item row" >
-  {{#if inEditMode }}
-      <div class="form-group">
-        {{input value=message.body class="form-control" action="finishedEditing" on="enter" }}
-      </div>
-  {{else}}
-    <div class="row">
-      <div class="pull-left" >
-        {{ message.body }}
-        <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
-      </div>  
+{{#if inEditMode }}
+    <div class="form-group">
+      {{input value=message.body class="form-control" action="finishedEditing" on="enter" }}
     </div>
-    <div class="row">
-      <div class="row">
-        <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
-      </div>
-      <div class="row">
-          <span class="pull-right">by {{message.sender.username}}</span>
-      </div>
-      <div class="row">
-        <span class="pull-right">{{message.dateSent}}</span>
-      </div>  
+{{else}}
+  <div class="chat-session-message {{ if ownedByMe 'chat-session-message--owner' 'chat-session-message--other' }} clearfix">
+    <img class="chat-session-message__user-image" src="/img/user-icon.jpg" />
+    <span class="chat-session-message__time">{{message.dateSent}}</span>
+    <div class="chat-session-message-body">
+      <p class="chat-session-message__text">{{message.body}}</p>
+      <span class="pull-right" {{action 'enableEditMode' }} >Edit</span>
+      <a href="" class="glyphicon glyphicon-remove" {{ action 'delete' message }} ></a>
     </div>
-    
-  {{/if}}
-</li>
+  </div>
+{{/if}}

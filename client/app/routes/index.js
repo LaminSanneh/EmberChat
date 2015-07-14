@@ -8,5 +8,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   setupController: function (controller, model) {
     this._super(controller, model);
     controller.set('loggedInUsers', this.store.find('user'));
+  },
+  redirect: function () {
+    return this.transitionTo('chatSessions');
   }
 });
