@@ -1,5 +1,5 @@
 {{outlet}}
-<form {{action 'loginSubmitted' username password anonymous on='submit' }} >
+<form class="login-form" {{action 'loginSubmitted' username password anonymous on='submit' }} >
     <div class="form-group">
         <label for="username">Username</label>
       {{ input value=username class="form-control" }}
@@ -8,5 +8,17 @@
         <label for="password">Password</label>
       {{ input type='password' value=password class="form-control" }}
     </div>
-    <button type="submit" class="btn btn-default pull-right">Login</button>
+    <div class="container-fluid">
+      <div class="row">
+        <button type="submit" class="btn btn-default pull-right login-form__submit-form">Login</button>
+      </div>
+      <div class="row">
+        &nbsp;
+      </div>
+      <div class="row">
+        {{#link-to 'register' class='pull-right login-form__register-link' }}
+            <span>&nbsp;</span>Register
+        {{/link-to}}
+      </div>
+    </div>
 </form>

@@ -24,7 +24,7 @@ body, html{
 }
 
 .chat-session-summary-body, .chat-session-message-body{
-  padding: $padding;
+  padding: 0 $padding $padding;
 }
 
 /*Header*/
@@ -35,8 +35,9 @@ body, html{
   padding: $padding;
   font-size: 2rem;
 
-  >*{
+  .left-header-part, .right-header-part, .middle-header-part {
     display: inline-block;
+    color: #FFFFFF;
   }
 }
 
@@ -82,7 +83,7 @@ body, html{
 }
 
 .chat-session-summary__user-image{
-  max-width: 100%;
+  max-width: 150px;
   float: left;
   width: 20%;
 }
@@ -115,7 +116,7 @@ body, html{
 
 /*Chat Session*/
 .chat-session-messages{
-  margin-top: 30px;
+  margin: 30px 30px 0;
 }
 
 .chat-session-message{
@@ -127,7 +128,7 @@ body, html{
 }
 
 .chat-session-message__user-image{
-  max-width: 100%;
+  max-width: 200px;
   float: left;
   width: 20%;
   position: absolute;

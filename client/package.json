@@ -47,5 +47,7 @@
     "rimraf": "2.2.8",
     "torii": "^0.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "liquid-fire": "^0.20.4"
+  }
 }

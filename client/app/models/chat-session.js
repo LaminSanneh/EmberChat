@@ -12,5 +12,8 @@ export default DS.Model.extend({
     }).mapBy('username').join(',');
     // this.get('users').forEach(function());
     return title;
-  }.property('type', 'users.length')
+  }.property('type', 'users.length'),
+  summary: function () {
+    return this.get('messages.lastObject.body');
+  }.property('messages')
 });

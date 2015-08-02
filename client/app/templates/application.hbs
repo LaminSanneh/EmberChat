@@ -1,11 +1,9 @@
 <div class="container">
   <header class="main-header">
-    <div class="left-header-part pull-left">icon-left</div>
-    <div class="middle-header-part">Page Title</div>
-    <div class="right-header-part pull-right">icon-right</div>
+    {{liquid-outlet "mainHeader"}}
   </header>
   <h2 id="title">Welcome to Ember.js</h2>
   {{partial 'partials/main-nav'}}
-  {{outlet}}
+  {{liquid-outlet}}
   {{partial 'partials/footer'}}
 </div>

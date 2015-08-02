@@ -12,12 +12,14 @@ module.exports = {
   login: function (req, res) {
 
     // See `api/responses/login.js`
-    return res.login({
-      username: req.param('username'),
-      password: req.param('password'),
-      successRedirect: '/',
-      invalidRedirect: '/login'
-    });
+    setTimeout(function(){
+      return res.login({
+        username: req.param('username'),
+        password: req.param('password'),
+        successRedirect: '/',
+        invalidRedirect: '/login'
+      });
+    }, 3000);
   },
 
 
@@ -74,4 +76,3 @@ module.exports = {
 //    });
 //  }
 };
-
