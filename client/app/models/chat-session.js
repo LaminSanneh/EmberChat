@@ -15,7 +15,7 @@ export default DS.Model.extend({
       return user.get('id') != model.get('startedBy.id');
     })
   }.property('users'),
-  summary: function () {
-    return this.get('messages.lastObject.body');
+  lastSentMessage: function () {
+    return this.get('messages.lastObject');
   }.property('messages')
 });
