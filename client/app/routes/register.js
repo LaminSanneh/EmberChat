@@ -11,5 +11,12 @@ export default Ember.Route.extend({
 				this.transitionTo('index');
 			}.bind(this));
 		}
-	}
+	},
+	renderTemplate: function (controller, model) {
+    this.render();
+    this.render('headers/register',{
+      into: 'application',
+      outlet: 'mainHeader'
+    });
+  }
 });

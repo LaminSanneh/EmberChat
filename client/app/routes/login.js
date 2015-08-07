@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   actions: {
     loginSubmitted: function(username, password){
       var route = this;
-      
+
       var providerName = 'local',
       options = {
         username: username,
@@ -28,12 +28,19 @@ export default Ember.Route.extend({
     console.log(this.get('session').get('sessionToken'));
   },
   dealWithAnonymousLogin: function(username){
-    
+
     this.store.createRecord('user', {
       username: username,
       anonymous: true
     }).save().then(function(user){
       console.log(user);
+    });
+  },
+  renderTemplate: function (controller, model) {
+    this.render();
+    this.render('headers/login',{
+      into: 'application',
+      outlet: 'mainHeader'
     });
   }
 });

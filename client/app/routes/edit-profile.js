@@ -5,5 +5,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   model: function () {
     var loggedInUserFromCookie = this.controllerFor('application').get('currentUser');
     return this.store.find('user', loggedInUserFromCookie.id);
+  },
+  renderTemplate: function (controller, model) {
+    this.render();
+    this.render('headers/edit-profile',{
+      into: 'application',
+      outlet: 'mainHeader'
+    });
   }
 });
