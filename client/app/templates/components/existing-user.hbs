@@ -1,5 +1,6 @@
-<li class="list-group-item row"
+<li class="list-group-item row users-list-item"
   {{action 'startNewOrExistingSession' startingUser user}} >
   {{ user.username }} &nbsp;<span class="label {{if user.isConnected 'label-success' 'label-default'}}">&nbsp;</span>
+  <img class="users-list-item_avatar pull-right" src={{user.avatar}} alt="" />
 </li>
 {{yield}}

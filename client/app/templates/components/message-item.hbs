@@ -4,7 +4,7 @@
     </div>
 {{else}}
   <div class="chat-session-message {{ if ownedByMe 'chat-session-message--owner' 'chat-session-message--other' }} clearfix">
-    <img class="chat-session-message__user-image" src="/img/user-icon.jpg" />
+    <img class="chat-session-message__user-image" src={{message.sender.avatar}} />
     <span class="chat-session-message__time">{{message.dateSent}}</span>
     <div class="chat-session-message-body">
       <p class="chat-session-message__text">{{message.body}}</p>

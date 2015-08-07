@@ -6,12 +6,13 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('login', function() {});
-  this.resource('user', function() {});
+  this.route('login');
+  this.route('user', function() {});
   this.route('register');
   this.route('chatSessions');
   this.route('chatSession', {path: '/chatSessions/:id'});
   this.route('users');
+  this.route('editProfile');
 });
 
 export default Router;

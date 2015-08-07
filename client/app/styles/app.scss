@@ -139,7 +139,7 @@ body, html{
 
 .chat-session-message-body{
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .chat-session-message__time{
@@ -180,4 +180,17 @@ body, html{
   .chat-session-message__time{
     left: $padding*5;
   }
+
+  .chat-session-message-body{
+    text-align: right;
+  }
+}
+
+.users-list-item{
+  padding: $padding $padding*2;
+}
+
+.users-list-item_avatar{
+  max-width: 100%;
+  width: 80px;
 }

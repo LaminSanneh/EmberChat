@@ -3,6 +3,11 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
+  existingUsers : function(){
+    return this.get('allUsers').filter(function(user){
+      return this.get('currentUser').id !== user.get('id');
+    }.bind(this));
+  }.property('currentUser'),
   actions: {
     startNewOrExistingSession: function (startingUser, otherUser) {
       var checkSession,

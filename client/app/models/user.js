@@ -9,5 +9,6 @@ export default DS.Model.extend({
   }),
   startedSessions: DS.hasMany('chatSession', {
     inverse: 'startedBy'
-  })
+  }),
+  avatar: DS.attr()
 });

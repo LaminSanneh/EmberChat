@@ -4,7 +4,8 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   setupController: function (controller, model) {
     this._super(controller, model);
-    controller.set('existingUsers', this.store.find('user'));
+    var users = this.store.all('user');
+    controller.set('allUsers', users);
   },
   renderTemplate: function (controller, model) {
     this.render();
