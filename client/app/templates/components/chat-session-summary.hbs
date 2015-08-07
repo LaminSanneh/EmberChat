@@ -1,8 +1,8 @@
 <div class="chat-session-summary clearfix" {{action 'goToSession' session }} >
-  <img class="chat-session-summary__user-image" src="/img/user-icon.jpg" />
+  <img class="chat-session-summary__user-image" src={{summaryImage}} />
   <div class="chat-session-summary-body">
-    <h2 class="chat-session-summary__title">{{session.title}}</h2>
-    <p class="chat-session-summary__text">{{shorten-string session.summary}}</p>
+    <h2 class="chat-session-summary__title">{{sessionModel.title}}</h2>
+    <p class="chat-session-summary__text">{{shorten-string sessionModel.summary}}</p>
     <span class="chat-session-summary__time">July 1, 2:00 PM</span>
     <span class="glyphicon glyphicon-remove" {{ action 'deleteChatSession' session }} ></span>
   </div>

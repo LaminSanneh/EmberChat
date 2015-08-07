@@ -1,6 +1,6 @@
 <div class="chat-sessions-list">
 {{#each currentUser.chatSessions as |session|}}
-  {{chat-session-summary session=session goToSessionAction='goToSession'
+  {{chat-session-summary sessionModel=session goToSessionAction='goToSession'
     deleteChatSessionAction='deleteChatSession' }}
 {{/each}}
 </div>
