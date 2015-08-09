@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
         return;
       }
 
-      chatSession = this.sessionAlreadyExistsWithTargetUser(otherUser);
+      chatSession = this.sessionAlreadyExistsWithTargetUser(startingUser, otherUser);
       if(chatSession[0]){
         controller.transitionToRoute('chatSession', chatSession[1]);
         return;
@@ -42,10 +42,10 @@ export default Ember.Controller.extend({
   targetUserIsCurrentUser: function(targetUser, currentUser){
     return targetUser.get('id') === currentUser.get('id');
   },
-  sessionAlreadyExistsWithTargetUser: function(targetUser){
+  sessionAlreadyExistsWithTargetUser: function(startingUser, targetUser){
     var sessionExists = false,
       requiredSession = null;
-    targetUser.get('chatSessions').forEach(function(session){
+    startingUser.get('chatSessions').forEach(function(session){
       session.get('users').forEach(function(user){
         if(user.get('id') === targetUser.get('id')){
           sessionExists = true;

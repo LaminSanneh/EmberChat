@@ -1,3 +1,5 @@
 <div class="row">
-    
+  {{#if session.isAuthenticated}}
+    <span class="pull-right">Username: {{currentUser.username}}</span>
+  {{/if}}
 </div>

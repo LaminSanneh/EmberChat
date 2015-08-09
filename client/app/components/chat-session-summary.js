@@ -18,4 +18,12 @@ export default Ember.Component.extend({
 
     return otherUsers.get('firstObject.avatar');
   }.property(),
+  title: function () {
+    var component = this;
+    var otherUsers = this.get('sessionModel.users').filter(function(user){
+      return user.get('id') != component.get('session.secure.currentUser.id');
+    });
+
+    return otherUsers.mapBy('username').join(',');
+  }.property()
 });
